@@ -9,7 +9,9 @@ function navigate(pageId) {
   document.getElementById(pageId).classList.add('active');
 }
 
-
+https://natural-remedies-comments-default-rtdb.europe-west1.firebasedatabase.app/
+:
+null
 
 function toggleMode() {
   const body = document.body;
@@ -90,4 +92,5 @@ function validateForm() {
   feedback.textContent = "Message sent successfully!";
   feedback.style.color = "green";
   return false; // Prevent actual submission for demo
+
 }

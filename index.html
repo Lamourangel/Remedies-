@@ -5,6 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Natural Remedies Hub</title>
   <link rel="stylesheet" href="styles.css" />
+
+<!-- Firebase App (core) -->
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+<!-- Firebase Realtime Database -->
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAs0Iazu5acPGX4vx_6vqqleYKaFi0PBRQ",
+    authDomain: "natural-remedies-comments.firebaseapp.com",
+    databaseURL: "https://natural-remedies-comments-default-rtdb.firebaseio.com",
+    projectId: "natural-remedies-comments",
+    storageBucket: "natural-remedies-comments.appspot.com",
+    messagingSenderId: "822421093383",
+    appId: "1:822421093383:web:86a8700d2d7a725eb97ea2",
+    measurementId: "G-Q31JKQZMGM"
+  };
+
+  // Initialize Firebase (namespaced SDK)
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
+
+
 </head>
 <body>
   <header>
@@ -16,6 +41,8 @@
       <button onclick="navigate('contact')">Contact</button>
       <button onclick="toggleMode()">FunColorSwitch</button>
     </nav>
+
+
   </header>
 
   <main>
@@ -72,7 +99,7 @@
 </section>
 
   <footer>
-    <p>&copy; 2025 Kwitonda Alice</p>
+    <p>&copy; 2025 Lamourangel</p>
   </footer>
 
 

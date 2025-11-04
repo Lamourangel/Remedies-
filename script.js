@@ -25,21 +25,28 @@ function toggleMode() {
   }
 }
 
-
-
+document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('commentForm');
   const commentList = document.getElementById('commentList');
 
-  // Load saved comments from localStorage
-  window.onload = function () {
-    const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-    savedComments.forEach(({ name, comment }) => {
+  // Load comments from Firebase if available, otherwise from localStorage
+  if (window.firebase && firebase.database) {
+    firebase.database().ref('comments').on('child_added', function (snapshot) {
+      const data = snapshot.val();
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${name}</strong>: ${comment}`;
+      li.innerHTML = `<strong>${data.name}</strong>: ${data.comment}`;
       commentList.appendChild(li);
     });
-  };
+  } else {
+    const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+    savedComments.forEach(function (c) {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${c.name}</strong>: ${c.comment}`;
+      commentList.appendChild(li);
+    });
+  }
 
+  // Save new comment (to Firebase if available, otherwise to localStorage)
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -47,18 +54,25 @@ function toggleMode() {
     const comment = document.getElementById('comment').value.trim();
 
     if (name && comment) {
-      const li = document.createElement('li');
-      li.innerHTML = `<strong>${name}</strong>: ${comment}`;
-      commentList.appendChild(li);
+      if (window.firebase && firebase.database) {
+        firebase.database().ref('comments').push({
+          name: name,
+          comment: comment
+        });
+      } else {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${name}</strong>: ${comment}`;
+        commentList.appendChild(li);
 
-      // Save to localStorage
-      const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-      savedComments.push({ name, comment });
-      localStorage.setItem('comments', JSON.stringify(savedComments));
+        const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        savedComments.push({ name, comment });
+        localStorage.setItem('comments', JSON.stringify(savedComments));
+      }
 
       form.reset();
     }
   });
+});
 
 
 

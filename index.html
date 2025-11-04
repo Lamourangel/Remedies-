@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natural Remedies Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Natural Remedies Hub</h1>
+    <img src="https://images.pexels.com/photos/1671650/pexels-photo-1671650.jpeg" alt="Herbal Remedies" class="top-image">
+    <nav>
+      <button onclick="navigate('home')">Home</button>
+      <button onclick="navigate('about')">About</button>
+      <button onclick="navigate('contact')">Contact</button>
+      <button onclick="toggleMode()">FunColorSwitch</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <h2>Welcome to Your Natural Healing Guide</h2>
+      <p>Do you often suffer from colds and flu? You’re not alone. Sometimes, medicines are not needed—nature offers us simple, effective remedies that can help you heal faster and feel better. On this site, we share easy home remedies that have helped many people across Africa and beyond. Let nature be your medicine—safe, affordable, and gentle. Start your journey to better health today!</p>
+      <h3>5 Simple and Effective Home Remedies</h3>
+      <ul>
+        <li><strong>Drink Plenty of Warm Water and Herbal Teas:</strong> Ginger, lemon, garlic soothe your throat and boost immunity.</li>
+        <li><strong>Rest Well and Sleep Enough:</strong> Healing happens in sleep—don’t push yourself.</li>
+        <li><strong>Eat Natural Foods:</strong> Oranges, mangoes, leafy greens strengthen your immune system.</li>
+        <li><strong>Use Honey and Lemon:</strong> Mix in warm water to calm cough and sore throat.</li>
+        <li><strong>Stay in a Warm Environment:</strong> Keep chest and feet warm, sunbathe 20 mins daily.</li>
+      </ul>
+      <p class="note">Remember, listen to your body, and if symptoms worsen, see a doctor. Your health is precious!</p>
+    </section>
+
+    <section id="about" class="page">
+      <h2>Our Mission</h2>
+      <p>At Natural Remedies Hub, we believe that good health doesn’t always require complicated medicines. Our goal is to share simple, proven home remedies that can help you fight common illnesses like colds, coughs, face pimples etc. We understand how tough it can be when you’re sick, especially in places where access to hospitals isn’t always easy. That’s why we focus on natural, easy solutions that you can trust and use every day. Your health is precious—let nature support you.</p>
+    </section>
+
+    <section id="contact" class="page">
+      <h2>Get in Touch</h2>
+      <form onsubmit="return validateForm()">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <label for="message">Message:</label>
+        <textarea id="message" required></textarea>
+        <button type="submit">Send</button>
+        <p id="form-feedback"></p>
+      </form>
+      <p>Email us:mekwitonda@gmail.com</p>
+    </section>
+  </main>
+
+  <section id="comments">
+  <h2>Leave a Comment</h2>
+  <form id="commentForm">
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" name="name" required /><br /><br />
+
+    <label for="comment">Comment:</label><br />
+    <textarea id="comment" name="comment" rows="4" required></textarea><br /><br />
+
+    <button type="submit">Post Comment</button>
+  </form>
+
+  <div id="commentSection">
+    <h3>Comments:</h3>
+    <ul id="commentList"></ul>
+  </div>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Kwitonda Alice</p>
+  </footer>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

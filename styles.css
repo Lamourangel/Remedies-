@@ -1,0 +1,219 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+nav button {
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav button:hover {
+  background-color: #ddd;
+}
+
+.top-image {
+  width: 100px;
+  margin-top: 1em;
+  border-radius: 8px;
+}
+
+main {
+  padding: 1em;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+main {
+  background-image: url('https://images.pexels.com/photos/17850566/pexels-photo-17850566.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2em;
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay for Blue Mode */
+body.blue-mode main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6); /* semi-transparent white */
+  z-index: -1;
+}
+
+/* Overlay for Gray Mode */
+body.gray-mode main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent black */
+  z-index: -1;
+}
+
+  
+/* Base Typography */
+body {
+  font-family: 'Times New Roman',  Times, serif;
+  font-size: 17px; /* between 16–18px */
+  font-weight: 500; /* between 400–600 */
+  margin: 0;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Light Blue Theme */
+body.blue-mode {
+  background-color: #e0f7fa; /* light blue */
+  color: #004d60;
+}
+
+body.blue-mode header,
+body.blue-mode footer {
+  background-color: #b2ebf2;
+}
+
+body.blue-mode nav button {
+  background-color: #80deea;
+  color: #004d60;
+}
+
+/* Deep Gray Theme */
+body.gray-mode {
+  background-color: #004d60; /* deep teal */
+  color: #f0f0f0; /* light text for contrast */
+}
+
+body.gray-mode header,
+body.gray-mode footer {
+  background-color: #dcdcdc;
+}
+
+body.gray-mode nav button {
+  background-color: #c0c0c0;
+  color: #004d60;
+}
+
+/* Buttons and Inputs */
+nav button {
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+input, textarea {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+
+
+
+footer {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+.note {
+  font-style: italic;
+  color: #fb6a6a;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  margin: 0.5em 0;
+  padding: 0.5em;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+}
+
+#form-feedback {
+  margin-top: 0.5em;
+  font-weight: bold;
+}
+
+.animated-bg {
+  margin-top: 2em;
+  animation: fadeIn 3s ease-in-out;
+  text-align: center;
+}
+
+.animated-bg img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Light/Dark Mode */
+body.dark-mode {
+  background-color: #222;
+  color: #eee;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #333;
+}
+
+body.dark-mode nav button {
+  background-color: #444;
+  color: #eee;
+}

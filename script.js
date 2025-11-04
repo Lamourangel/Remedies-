@@ -9,9 +9,7 @@ function navigate(pageId) {
   document.getElementById(pageId).classList.add('active');
 }
 
-https://natural-remedies-comments-default-rtdb.europe-west1.firebasedatabase.app/
-:
-null
+
 
 function toggleMode() {
   const body = document.body;
@@ -32,7 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const commentList = document.getElementById('commentList');
 
   // Load comments from Firebase if available, otherwise from localStorage
-  if (window.firebase && firebase.database) {
+if (typeof firebase !== 'undefined' && firebase.apps.length > 0) {
+
+
     firebase.database().ref('comments').on('child_added', function (snapshot) {
       const data = snapshot.val();
       const li = document.createElement('li');
@@ -94,3 +94,4 @@ function validateForm() {
   return false; // Prevent actual submission for demo
 
 }
+

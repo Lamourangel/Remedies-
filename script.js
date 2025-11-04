@@ -24,8 +24,19 @@ function toggleMode() {
 }
 
 
+
   const form = document.getElementById('commentForm');
   const commentList = document.getElementById('commentList');
+
+  // Load saved comments from localStorage
+  window.onload = function () {
+    const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+    savedComments.forEach(({ name, comment }) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${name}</strong>: ${comment}`;
+      commentList.appendChild(li);
+    });
+  };
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -38,9 +49,15 @@ function toggleMode() {
       li.innerHTML = `<strong>${name}</strong>: ${comment}`;
       commentList.appendChild(li);
 
+      // Save to localStorage
+      const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+      savedComments.push({ name, comment });
+      localStorage.setItem('comments', JSON.stringify(savedComments));
+
       form.reset();
     }
   });
+
 
 
 function validateForm() {

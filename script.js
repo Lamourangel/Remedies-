@@ -9,6 +9,8 @@ function navigate(pageId) {
   document.getElementById(pageId).classList.add('active');
 }
 
+
+
 function toggleMode() {
   const body = document.body;
 
